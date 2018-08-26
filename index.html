@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+    <title>Rotation</title>
+</head>
+<body>
+    <a-scene>
+        <a-sky src="img/screenshot1.png" visible="true" rotation="0 -90 0"></a-sky>
+
+        <a-entity>
+            <a-image src="img/icon-circle.png"  scale="7 7 7"  opacity="1" rotation="30.66 200 0" position="-2 -8 -30"></a-image>
+        </a-entity>
+
+        <a-entity camera position="0 1.6 0">
+            <a-animation attribute="rotation"
+                    dur="60000"
+                    easing="linear"
+                    from="0 0 0"
+                    to="0 -360 0" 
+                    repeat="indefinite"></a-animation>
+          </a-entity>     
+    </a-scene>
+
+    
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+
+    <script>
+            var i = -90;
+        
+            function Timer(initiate) {
+                if (initiate !== true) {
+                    i  = i - 0.007;
+                    document.getElementById("image-360").setAttribute('rotation', {x: 0, y: i, z:0})
+                    console.log(i);
+                }
+                setTimeout(Timer, -1000);
+            }
+        
+            $(function() {
+                  Timer(true);
+            });
+    </script>
+   
+</body>
+</html>
