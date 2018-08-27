@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+    <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
     <title>Rotation</title>
 </head>
 <body>
-    <a-scene>
+    <a-scene cursor="rayOrigin: mouse">
         <a-sky src="img/screenshot1.png" visible="true" rotation="0 -90 0"></a-sky>
 
         <a-entity>
-            <a-image src="img/icon-circle.png"  scale="7 7 7"  opacity="1" rotation="30.66 200 0" position="-2 -8 -30"></a-image>
+            <a-image id="over"  src="img/icon-circle.png"  scale="7 7 7"  opacity="1" rotation="30.66 200 0" position="-2 -8 -30"></a-image>
         </a-entity>
 
         <a-entity id="rotation" camera position="0 1.6 0">
@@ -31,6 +31,11 @@
 
     <script>
             var i = 0;
+            var x = document.getElementById('over');
+
+            x.addEventListener('mouseenter', function() {
+                alert("MouseOver!");
+            });
         
             function Timer(initiate) {
                 if (initiate !== true) {
